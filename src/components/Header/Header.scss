@@ -1,0 +1,41 @@
+.header-container{
+  height: 70px;
+  background: #FAFAFA;
+  img{
+      width: 30%;
+      position: relative;
+  }
+  img:first-child{
+      float: left;
+      left: 20px;
+      bottom: 2px;
+  }
+  img:last-child{
+      float: right;
+      right: 20px;
+  }
+}
+.header-desktop-bg{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  position: absolute;
+  background-color: #E5F9FF;
+  .header-display-body{
+      position: relative;
+      background-color: #fff;
+      margin: 100px auto;
+      width: 100%;
+      max-width: 400px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .header-container{
+      display: none;
+  }
+  .header-desktop-bg{
+      background-color: #fff;
+  }
+}
+
