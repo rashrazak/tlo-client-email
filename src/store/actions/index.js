@@ -54,14 +54,14 @@ export const useActions = (state, dispatch) => {
         max:999999,
         integer:true
       })
-      // emailjs.send('service_5nidkzd', 'template_6ttyfvk', {recipientEmail, genCode}, 'user_vzG3jk3Dt7ojma67IRZO9')
-      // .then(function(response) {
-      //   console.log('SUCCESS!', response.status, response.text);
-      //   actions.successEmail({recipientEmail, genCode})
-      // }, function(error) {
-      //   console.log('FAILED...', error);
+      emailjs.send('service_5nidkzd', 'template_6ttyfvk', {recipientEmail, genCode}, 'user_vzG3jk3Dt7ojma67IRZO9')
+      .then(function(response) {
+         console.log('SUCCESS!', response.status, response.text);
+         actions.successEmail({recipientEmail, genCode})
+       }, function(error) {
+         console.log('FAILED...', error);
         actions.sendMailBackup({recipientEmail, genCode})
-      // });
+       });
     
     }
   }
