@@ -1,4 +1,4 @@
-import initialState from '../state';
+import initialState from '../../state';
 import {
   IS_LOADING,
   SET_DATA,
@@ -6,7 +6,7 @@ import {
   SET_STEP,
   SET_STEP_JOURNEY,
   SET_DIALOG,
-} from "../types";
+} from "../../types";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -26,9 +26,6 @@ const reducer = (state, action) => {
     }
     case SET_STEP: {
       return { ...state, step: action.data};
-    }
-    case SET_STEP_JOURNEY: {
-      return { ...state, stepJourney: action.data};
     }
     default:
       return state;

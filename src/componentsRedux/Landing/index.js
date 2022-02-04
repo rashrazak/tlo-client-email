@@ -1,12 +1,11 @@
 import React, {useContext} from 'react'
-import { StoreContext } from "../../store/reactContext/context"
+import { useDispatch, useSelector } from 'react-redux';
 import EmailSubmit from '../EmailSubmit'
 import EmailCheck from '../EmailCheck'
 
 
 function Landing() {
-
-    const { state, actions } = useContext(StoreContext);
+	const step = useSelector(state=>state.main.step)
 
     const getStepContent = (step) => {
 		switch (step) {
@@ -20,7 +19,7 @@ function Landing() {
 	}
     return (
         <div>
-        {getStepContent(state.step)}
+        {getStepContent(step)}
         </div>
     )
 }

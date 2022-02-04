@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from 'react'
-import StoreProvider, { StoreContext } from "./store/context"
 // import Landing from './Landing'
 import Header from './components/Header'
 import { createMuiTheme } from '@material-ui/core';
@@ -7,8 +6,9 @@ import Footer from './components/Footer2';
 import "./App.scss"
 
 import { ThemeProvider } from '@material-ui/core/styles';
-import Landing from './components/Landing';
-
+import {Routes, BrowserRouter as Router, Route, Link} from "react-router-dom"
+import ContextMain from './components/ContextMain';
+import ReduxMain from './store/redux/ReduxMain'
 
 const defaultMaterialTheme = createMuiTheme({
   palette: {
@@ -35,21 +35,27 @@ const defaultMaterialTheme = createMuiTheme({
 
 
 
-const App = () => {
-	const { state, actions } = useContext(StoreContext);
 
+const App = () => {
 	return (
-		<StoreProvider>
-			<StoreContext.Consumer>
-				{({ state }) => (
-					<ThemeProvider theme={defaultMaterialTheme}>
-							<Header />
-								<Landing />
-							<Footer/>
-					</ThemeProvider>
-				)}
-			</StoreContext.Consumer>
-		</StoreProvider>
+      <ThemeProvider theme={defaultMaterialTheme}>
+        <Header />
+          <Router>
+            <Routes>
+              <Route path="/" exact  element={
+                <>
+                  <ul>
+                    <li><Link to="/context">useContext</Link></li>
+                    <li><Link to="/redux">REDUX-THUNK</Link></li>
+                  </ul>
+                </>
+              }/>
+              <Route path="/context"  element={<ContextMain/>}/>
+              <Route path="/redux"  element={<ReduxMain/>}/>
+            </Routes>
+          </Router>
+        <Footer/>
+      </ThemeProvider>
 	)
 }
 

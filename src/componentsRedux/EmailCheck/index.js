@@ -1,16 +1,18 @@
-import React, { useRef, useContext } from "react"
+import React, { useRef } from "react"
 import classNames from 'classnames';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { StoreContext } from "../../store/reactContext/context";
 import { Button } from '@material-ui/core';
-import Loader from "../Loader";
+import Loader from "../../components/Loader";
 import "./EmailCheck.scss";
+import { useDispatch, useSelector } from 'react-redux';
+import actions from '../../store/redux/actions'
+
 
 const EmailCheck = () => {
-  const { state, actions } = useContext(StoreContext);
-  const { setData, sendEmail,  setLoading, resetData} = actions;
-  const {mailCheck} = state
+  const {resetData} = actions
+  const dispatch = useDispatch()
+  const state = useSelector((state) =>state.main)
   const buttonRef = useRef(null);
 
   const initialValues = (state.mailSent) ? { ...state.mailSent } : {
@@ -25,13 +27,14 @@ const EmailCheck = () => {
     }),
     onSubmit: values => {
         let code = values.recipientCode;
-        if(code != mailCheck.genCode){
+        if(code != state?.mailCheck.genCode){
             alert('Wrong Code, restart')
-            resetData()
+            dispatch(resetData() )
             return false;
         }
-        alert('Success')
-        resetData()
+        alert('Success, check backend')
+        //send data to api //nanti
+        dispatch(resetData() )
        
     }
   });

@@ -1,15 +1,17 @@
-import React, { useRef, useContext } from "react"
+import React, { useRef } from "react"
 import classNames from 'classnames';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { StoreContext } from "../../store/reactContext/context";
+import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '@material-ui/core';
-import Loader from "../Loader";
+import actions from '../../store/redux/actions'
+import Loader from "../../components/Loader";
 import "./EmailSubmit.scss";
 
 const EmailSubmit = () => {
-  const { state, actions } = useContext(StoreContext);
-  const { setData, sendEmail,  setLoading} = actions;
+  const  {setLoading, setData, sendEmail} = actions
+  const dispatch = useDispatch()
+  const state = useSelector((state) =>state.main)
   const buttonRef = useRef(null);
 
   const initialValues = (state.mailSent) ? { ...state.mailSent } : {
@@ -25,10 +27,11 @@ const EmailSubmit = () => {
     }),
     onSubmit: values => {
         const params = { recipientEmail: values.recipientEmail};
-        setLoading(true)
+        dispatch(setLoading(true))
         // setStep(state.step+1)
-        setData(params, 'mailSent')
-        sendEmail(params)
+        dispatch(setData(params, 'mailSent'))
+        console.log(state)
+        dispatch( sendEmail(params, state.step) )
     }
   });
 
