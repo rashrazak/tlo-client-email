@@ -42,7 +42,7 @@ const EmailSubmit = () => {
             max:999999,
             integer:true
         })
-        let params = { recipientEmail: values.recipientEmail, genCode};
+        let params = { medium:'Recoil',recipientEmail: values.recipientEmail, genCode};
 
         setData(old=>{return {...old, setLoading:true, mailSent:params}})
 

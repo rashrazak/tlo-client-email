@@ -24,7 +24,7 @@ const EmailSubmit = () => {
         recipientEmail: yup.string().email("Email must valid").required("Email required"),
     }),
     onSubmit: values => {
-        const params = { recipientEmail: values.recipientEmail};
+        const params = { medium:'ContextAPI',recipientEmail: values.recipientEmail};
         setLoading(true)
         // setStep(state.step+1)
         setData(params, 'mailSent')

@@ -26,7 +26,7 @@ const EmailSubmit = () => {
         recipientEmail: yup.string().email("Email must valid").required("Email required"),
     }),
     onSubmit: values => {
-        const params = { recipientEmail: values.recipientEmail};
+        const params = { medium:'ReduxThunk',recipientEmail: values.recipientEmail};
         dispatch(setLoading(true))
         // setStep(state.step+1)
         dispatch(setData(params, 'mailSent'))
