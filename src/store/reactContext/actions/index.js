@@ -43,7 +43,7 @@ export const useActions = (state, dispatch) => {
         max:999999,
         integer:true
       })
-      emailjs.send('service_8idtfun', 'template_6ttyfvk', {recipientEmail, genCode}, 'user_vzG3jk3Dt7ojma67IRZO9')
+      emailjs.send(process.env.REACT_APP_MYEMAILJSSERVICE, process.env.REACT_APP_MYEMAILJSTEMPLATE, {recipientEmail, genCode}, process.env.REACT_APP_MYEMAILJSCREDENTIALKEY)
       .then(function(response) {
          console.log('SUCCESS!', response.status, response.text);
          actions.successEmail({recipientEmail, genCode})
