@@ -1,8 +1,8 @@
 # React APP Email OTP Generator
 
-This is a [React](reactjs.org) + [EmailJS](https://www.emailjs.com/) + [MaterialUI](material-ui.com) + scss + React Context + Validation.
+This is a [React](reactjs.org) + [EmailJS](https://www.emailjs.com/) + [MaterialUI](material-ui.com) + scss + State (Redux, Context, Recoil)+ Validation.
 
-The purpose of this project to build a frontend that can handle 2 email service provider. If the primary service is down,using REST to connect to secondary service. 
+The purpose of this project to build a frontend that can handle 3 type of state management
 
 #### Why React?
 I can develop with React, fast and scalable
@@ -12,8 +12,12 @@ EmailJS can support frontend environment without wasting time build backend. Can
 Save time 
 #### Why SCSS?
 To avoid global naming conflict, easy to read, easy to update. 
-#### How State Management?
+#### How State Management (API CONTEXT)?
 Using React Hooks useContext, createContext, and designing in Redux way, easy to scale and micro manage.
+#### How State Management (REDUX THUNK)?
+Using REdux Hooks + Thunk Middleware for bigger data management
+#### How State Management (RECOIL)?
+Using Recoil method that can be run only in Functional Component
 #### How Validation?
 Using Formik and Yup Library. Easy to regex and manage. 
 #### How Generate OTP?
