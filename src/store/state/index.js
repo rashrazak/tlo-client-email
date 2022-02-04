@@ -1,3 +1,4 @@
+//INITIAL STATE
 const initialState = {
   isLoading: false,
   step: 0,

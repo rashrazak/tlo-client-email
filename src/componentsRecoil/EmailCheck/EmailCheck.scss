@@ -1,0 +1,22 @@
+.page-basic-details {
+    margin: 5% 20%;
+    padding: 30px;
+    border: 2px solid #eaeaea;
+    border-radius: 5px;
+  
+    .c-terms-label {
+      margin-top: 32px;
+      margin-bottom: 24px;
+    }
+  
+    button.submit-btn {
+      margin-top: 0px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .page-basic-details {
+      padding-top: 10px;
+    }
+  }
+  

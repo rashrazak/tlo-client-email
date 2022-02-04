@@ -9,6 +9,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import {Routes, BrowserRouter as Router, Route, Link} from "react-router-dom"
 import ContextMain from './components/ContextMain';
 import ReduxMain from './store/redux/ReduxMain'
+import RecoilMain from './store/recoil/RecoilMain'
 
 const defaultMaterialTheme = createMuiTheme({
   palette: {
@@ -47,11 +48,13 @@ const App = () => {
                   <ul>
                     <li><Link to="/context">useContext</Link></li>
                     <li><Link to="/redux">REDUX-THUNK</Link></li>
+                    <li><Link to="/recoil">RECOIL</Link></li>
                   </ul>
                 </>
               }/>
               <Route path="/context"  element={<ContextMain/>}/>
               <Route path="/redux"  element={<ReduxMain/>}/>
+              <Route path="/recoil"  element={<RecoilMain/>}/>
             </Routes>
           </Router>
         <Footer/>

@@ -9,9 +9,7 @@ const store = createStore(rootReducer, compose(applyMiddleware(thunk.withExtraAr
 
 
 function ReduxMain() {
-    useEffect(() => {
-        if (process.env.REACT_APP_ENV !== "production") console.log(store.getState())
-      }, [store.getState()]);
+
     return  (
     <Provider store={store}>
         <Landing />

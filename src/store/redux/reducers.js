@@ -23,7 +23,9 @@ const Reducer = (state = initialState, action) => {
       return { ...state, isLoading: action.data};
     }
     case SET_DATA: {
-      return action.name ? { ...state, [action.name]: {...action.data} } : {...state, ...action.data};
+      let data = action.name ? { ...state, [action.name]: {...action.data} } : {...state, ...action.data};
+      if (process.env.REACT_APP_ENV !== "production") console.log(data)
+      return data
     }
     case RESET_DATA: {
       return { ...initialState };
