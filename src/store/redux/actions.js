@@ -39,7 +39,7 @@ const actions =  {
                 max:999999,
                 integer:true
             })
-            emailjs.send('process.env.REACT_APP_MYEMAILJSSERVICE', process.env.REACT_APP_MYEMAILJSTEMPLATE, {recipientEmail, genCode}, process.env.REACT_APP_MYEMAILJSCREDENTIALKEY)
+            emailjs.send(process.env.REACT_APP_MYEMAILJSSERVICE, process.env.REACT_APP_MYEMAILJSTEMPLATE, {recipientEmail, genCode}, process.env.REACT_APP_MYEMAILJSCREDENTIALKEY)
             .then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
                 dispatch({ type:SET_DATA, data:{recipientEmail, genCode},name:'mailCheck'})
